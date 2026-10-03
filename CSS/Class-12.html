@@ -1,0 +1,71 @@
+<!-- Program: Padding (Inside Space) -->
+
+<html>
+
+<head>
+    <title>Padding (Inside Space)</title>
+
+    <style>
+        .box-normal {
+            border: 2px solid black;
+            background-color: lightgray;
+            /* No padding added here */
+        }
+
+        .box-padded {
+            border: 2px solid black;
+            background-color: lightgreen;
+            padding: 20px; /* Adds 20px spacing on all 4 inside sides */
+        }
+
+        .box-custom-padding {
+            border: 2px solid black;
+            background-color: lightblue;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Padding Example</h1>
+
+    <div class="box-normal">
+        <b>Box 1: Normal Box (No Padding)</b>
+        <p>Notice how the text touches the border borders tightly.</p>
+    </div>
+
+    <br>
+
+    <div class="box-padded">
+        <b>Box 2: Padded Box (padding: 20px)</b>
+        <p>Notice how there is comfortable space between the text and the border.</p>
+    </div>
+
+    <br>
+
+    <div class="box-custom-padding">
+        <b>Box 3: Custom Padding Box</b>
+        <p>This box has small vertical spacing and larger horizontal spacing.</p>
+    </div>
+
+    <!--
+        Padding (Inside Space)
+
+        Padding is the space between the element content and its border.
+        It creates empty spacing inside the border.
+
+        Properties:
+        - padding: Sets padding on all 4 sides at once (e.g. padding: 20px;).
+        - padding-top: Spacing at the top.
+        - padding-bottom: Spacing at the bottom.
+        - padding-left: Spacing on the left side.
+        - padding-right: Spacing on the right side.
+    -->
+
+</body>
+
+</html>

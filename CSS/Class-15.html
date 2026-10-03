@@ -1,0 +1,68 @@
+<!-- Program: Hover Effect -->
+
+<html>
+
+<head>
+    <title>Hover Effect</title>
+
+    <style>
+        /* Base styling for our links and texts */
+        a {
+            color: blue;
+            font-size: 20px;
+            text-decoration: none; /* Removes link underline */
+        }
+
+        /* Hover style rules are applied only when the mouse cursor enters the element */
+        a:hover {
+            color: red; /* Changes text color to red when hovered */
+            text-decoration: underline; /* Shows underline only on hover */
+        }
+
+        .hover-box {
+            background-color: lightblue;
+            border: 2px solid darkblue;
+            padding: 15px;
+            width: 250px;
+            text-align: center;
+        }
+
+        /* Hover style rules for class boxes */
+        .hover-box:hover {
+            background-color: darkblue; /* Swaps background to dark blue */
+            color: white; /* Swaps text color to white */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Hover Effect Example</h1>
+
+    <p>
+        <a href="#">Hover Over This Link!</a>
+    </p>
+    <!-- Notice color changes to red and underline displays on mouse enter -->
+
+    <br>
+
+    <div class="hover-box">
+        Hover Over This Box!
+    </div>
+    <!-- Notice background color changes to dark blue and text to white -->
+
+    <!--
+        Hover Effect (:hover)
+
+        The :hover pseudo-class is used to select and style an element when you 
+        move the mouse pointer over it.
+
+        Common Uses:
+        - Change color or underline link menus on hover.
+        - Change button background colors to indicate interactivity.
+        - Create card highlight zooms or lighting shifts.
+    -->
+
+</body>
+
+</html>

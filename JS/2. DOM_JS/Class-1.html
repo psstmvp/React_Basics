@@ -1,0 +1,110 @@
+<!-- Program: Introduction to DOM and Selecting Elements -->
+
+<html>
+
+<head>
+    <title>Class 1 - Introduction to DOM & Selecting Elements</title>
+</head>
+
+<body>
+
+    <h1>Class 1: Introduction to DOM & Selecting Elements</h1>
+    <p>The DOM (Document Object Model) allows JavaScript to select and interact with HTML elements on a webpage.</p>
+
+    <!-- Target elements for demonstration -->
+    <h2 id="main-heading">Welcome to DOM Learning!</h2>
+
+    <p class="info-text">This is paragraph 1 with class="info-text".</p>
+    <p class="info-text">This is paragraph 2 with class="info-text".</p>
+
+    <ul id="skills-list">
+        <li class="skill-item">HTML</li>
+        <li class="skill-item">CSS</li>
+        <li class="skill-item">JavaScript</li>
+    </ul>
+
+    <!-- Buttons to trigger DOM selections -->
+    <h3>Select Elements using JavaScript:</h3>
+    <button onclick="selectById()">1. getElementById</button>
+    <button onclick="selectByClassName()">2. getElementsByClassName</button>
+    <button onclick="selectByQuerySelector()">3. querySelector</button>
+    <button onclick="selectByQuerySelectorAll()">4. querySelectorAll</button>
+
+    <hr>
+
+    <h3>Console Output:</h3>
+    <p>(Open DevTools by pressing F12 -> Console to see logs)</p>
+    <pre id="output">Click any button above to see DOM selector output...</pre>
+
+    <script>
+        // 1. document.getElementById() finds a single element by its ID
+        function selectById() {
+            const heading = document.getElementById("main-heading");
+            console.log("getElementById result:", heading);
+            document.getElementById("output").innerText = 
+                "document.getElementById('main-heading'):\n" +
+                "TagName: <" + heading.tagName + ">\n" +
+                "Text: " + heading.innerText;
+        }
+
+        // 2. document.getElementsByClassName() returns a collection of elements with the given class
+        function selectByClassName() {
+            const paragraphs = document.getElementsByClassName("info-text");
+            console.log("getElementsByClassName result:", paragraphs);
+
+            let result = "document.getElementsByClassName('info-text'):\nFound " + paragraphs.length + " elements:\n";
+            for (let i = 0; i < paragraphs.length; i++) {
+                result += "[" + i + "] " + paragraphs[i].innerText + "\n";
+            }
+            document.getElementById("output").innerText = result;
+        }
+
+        // 3. document.querySelector() selects the FIRST matching element using a CSS-style selector
+        function selectByQuerySelector() {
+            const firstSkill = document.querySelector("#skills-list .skill-item");
+            console.log("querySelector result:", firstSkill);
+            document.getElementById("output").innerText = 
+                "document.querySelector('#skills-list .skill-item'):\n" +
+                "Selected first matching item: " + firstSkill.innerText;
+        }
+
+        // 4. document.querySelectorAll() selects ALL matching elements
+        function selectByQuerySelectorAll() {
+            const allSkills = document.querySelectorAll(".skill-item");
+            console.log("querySelectorAll result:", allSkills);
+
+            let result = "document.querySelectorAll('.skill-item'):\nFound " + allSkills.length + " items:\n";
+            allSkills.forEach((skill, index) => {
+                result += "Item " + (index + 1) + ": " + skill.innerText + "\n";
+            });
+            document.getElementById("output").innerText = result;
+        }
+    </script>
+
+    <!--
+        ====================================================
+        Class 1 Summary: Introduction to DOM & Selectors
+        ====================================================
+
+        1. What is the DOM?
+           - DOM stands for Document Object Model.
+           - When the browser loads an HTML page, it turns all HTML tags into
+             JavaScript objects that we can select, inspect, and modify.
+
+        2. DOM Selector Methods:
+           - document.getElementById("id")
+             Selects one element by its unique ID.
+           
+           - document.getElementsByClassName("className")
+             Selects all elements having the specified class name.
+           
+           - document.querySelector("selector")
+             Returns the FIRST element matching the CSS selector (#id, .class, tag).
+           
+           - document.querySelectorAll("selector")
+             Returns ALL elements matching the CSS selector as a NodeList.
+    -->
+
+</body>
+
+</html>

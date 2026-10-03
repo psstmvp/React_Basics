@@ -1,0 +1,70 @@
+<!-- Program: Width and Height -->
+
+<html>
+
+<head>
+    <title>Width and Height</title>
+
+    <style>
+        .small-box {
+            border: 2px solid black;
+            background-color: lightgreen;
+            width: 200px;  /* Width is locked at 200 pixels */
+            height: 100px; /* Height is locked at 100 pixels */
+        }
+
+        .large-box {
+            border: 2px solid black;
+            background-color: lightblue;
+            width: 400px;  /* Width is locked at 400 pixels */
+            height: 150px; /* Height is locked at 150 pixels */
+        }
+
+        .half-width-box {
+            border: 2px solid black;
+            background-color: lightcoral;
+            width: 50%;    /* Width takes up exactly half (50%) of screen page width */
+            height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Width and Height Example</h1>
+
+    <div class="small-box">
+        <b>Small Box</b><br>
+        Width: 200px<br>
+        Height: 100px
+    </div>
+
+    <br>
+
+    <div class="large-box">
+        <b>Large Box</b><br>
+        Width: 400px<br>
+        Height: 150px
+    </div>
+
+    <br>
+
+    <div class="half-width-box">
+        <b>Half-Width Box</b><br>
+        Width: 50% of the screen
+    </div>
+
+    <!--
+        Width and Height
+
+        The width and height properties are used to set the size of block-level elements.
+
+        Values:
+        1. Pixels (px): e.g. 200px, 150px. Locks the size to a fixed pixel count.
+        2. Percentages (%): e.g. 50%, 100%. Makes the size responsive to the parent 
+           container size or browser window.
+    -->
+
+</body>
+
+</html>

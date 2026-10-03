@@ -1,0 +1,90 @@
+<!-- Program: Mouse Events and addEventListener -->
+
+<html>
+
+<head>
+    <title>Class 6 - Mouse Events & addEventListener</title>
+</head>
+
+<body>
+
+    <h1>Class 6: Mouse Events & addEventListener</h1>
+    <p><code>addEventListener()</code> connects user actions (like mouse clicks and hover) to JavaScript functions.</p>
+
+    <!-- Interactive Button and Target Area -->
+    <h3>Interactive Click Area:</h3>
+    <button id="clickBtn">Click Me!</button>
+    <button id="dblClickBtn">Double-Click Me!</button>
+
+    <br><br>
+
+    <div id="hoverArea">
+        <strong>Hover Area:</strong> Move your mouse over this text to test mouseenter and mouseleave!
+    </div>
+
+    <br>
+
+    <p>Total Clicks: <strong id="clickCounter">0</strong></p>
+    <p>Total Double Clicks: <strong id="dblClickCounter">0</strong></p>
+
+    <hr>
+
+    <h3>Event Log:</h3>
+    <pre id="output">Event messages will appear here...</pre>
+
+    <script>
+        const clickBtn = document.getElementById("clickBtn");
+        const dblClickBtn = document.getElementById("dblClickBtn");
+        const hoverArea = document.getElementById("hoverArea");
+        const output = document.getElementById("output");
+
+        let clickCount = 0;
+        let dblClickCount = 0;
+
+        // 1. Click event
+        clickBtn.addEventListener("click", function() {
+            clickCount++;
+            document.getElementById("clickCounter").innerText = clickCount;
+            output.innerText = "Single 'click' event detected! Total: " + clickCount;
+        });
+
+        // 2. Double-click event
+        dblClickBtn.addEventListener("dblclick", function() {
+            dblClickCount++;
+            document.getElementById("dblClickCounter").innerText = dblClickCount;
+            output.innerText = "'dblclick' (Double Click) event detected! Total: " + dblClickCount;
+        });
+
+        // 3. Mouse enter (hover in)
+        hoverArea.addEventListener("mouseenter", function() {
+            output.innerText = "'mouseenter' event detected: Mouse moved inside the area.";
+        });
+
+        // 4. Mouse leave (hover out)
+        hoverArea.addEventListener("mouseleave", function() {
+            output.innerText = "'mouseleave' event detected: Mouse left the area.";
+        });
+    </script>
+
+    <!--
+        ====================================================
+        Class 6 Summary: Mouse Events & addEventListener
+        ====================================================
+
+        1. Syntax:
+           element.addEventListener("eventName", callbackFunction);
+
+        2. Common Mouse Events:
+           - "click"      : Triggered on mouse click.
+           - "dblclick"   : Triggered on double-click.
+           - "mouseenter" : Triggered when mouse pointer moves onto element.
+           - "mouseleave" : Triggered when mouse pointer moves out of element.
+
+        3. Advantage over inline HTML onclick:
+           - Keeps HTML code clean and separate from JavaScript logic.
+           - Allows adding multiple event listeners to the same element.
+    -->
+
+</body>
+
+</html>

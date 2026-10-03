@@ -1,0 +1,99 @@
+<!-- Program: Modifying Styles and ClassList using JavaScript -->
+
+<html>
+
+<head>
+    <title>Class 4 - Modifying Styles & ClassList</title>
+</head>
+
+<body>
+
+    <h1>Class 4: Modifying Styles & ClassList</h1>
+    <p>JavaScript can directly change the visual style of elements using the <code>style</code> property or by manipulating <code>className</code>.</p>
+
+    <!-- Target element to style -->
+    <div id="targetBox">
+        <h3>Sample Target Box</h3>
+        <p id="targetText">Watch my styles change when you click the buttons below.</p>
+    </div>
+
+    <br>
+
+    <!-- Buttons to manipulate styles via JS -->
+    <button onclick="changeColors()">1. Change Colors (color & background)</button>
+    <button onclick="changeFontSize()">2. Change Font Size</button>
+    <button onclick="addBorder()">3. Add Border & Padding</button>
+    <button onclick="resetStyles()">Reset Styles</button>
+
+    <hr>
+
+    <h3>Status Output:</h3>
+    <pre id="output">Click any button above to apply styles using JavaScript...</pre>
+
+    <script>
+        const box = document.getElementById("targetBox");
+
+        // 1. Changing color and backgroundColor via JS
+        function changeColors() {
+            // Note: CSS 'background-color' becomes camelCase 'backgroundColor' in JavaScript!
+            box.style.backgroundColor = "lightyellow";
+            box.style.color = "darkblue";
+
+            document.getElementById("output").innerText = 
+                "Applied styles:\n" +
+                "box.style.backgroundColor = 'lightyellow';\n" +
+                "box.style.color = 'darkblue';";
+        }
+
+        // 2. Changing fontSize via JS
+        function changeFontSize() {
+            box.style.fontSize = "20px";
+            document.getElementById("output").innerText = 
+                "Applied style:\n" +
+                "box.style.fontSize = '20px';";
+        }
+
+        // 3. Adding border and padding via JS
+        function addBorder() {
+            box.style.border = "2px solid red";
+            box.style.padding = "15px";
+
+            document.getElementById("output").innerText = 
+                "Applied styles:\n" +
+                "box.style.border = '2px solid red';\n" +
+                "box.style.padding = '15px';";
+        }
+
+        // Reset all styles
+        function resetStyles() {
+            box.style.backgroundColor = "";
+            box.style.color = "";
+            box.style.fontSize = "";
+            box.style.border = "";
+            box.style.padding = "";
+
+            document.getElementById("output").innerText = "All styles have been cleared.";
+        }
+    </script>
+
+    <!--
+        ====================================================
+        Class 4 Summary: Modifying Styles
+        ====================================================
+
+        1. The style Property:
+           - You can change an element's style using: element.style.propertyName = "value";
+           - CSS properties with hyphens are written in camelCase in JavaScript:
+             background-color -> backgroundColor
+             font-size        -> fontSize
+             margin-top       -> marginTop
+             border-radius    -> borderRadius
+
+        2. Clearing Styles:
+           - Setting a style property to an empty string ("") removes that inline style:
+             element.style.color = "";
+    -->
+
+</body>
+
+</html>

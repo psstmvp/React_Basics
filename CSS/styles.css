@@ -1,0 +1,14 @@
+/* styles.css */
+/* This is an external CSS stylesheet file */
+
+body {
+    background-color: lightyellow; /* Sets the webpage background color to light yellow */
+}
+
+h1 {
+    color: darkred; /* Sets the h1 heading text color to dark red */
+}
+
+p {
+    color: darkgreen; /* Sets the paragraph text color to dark green */
+}

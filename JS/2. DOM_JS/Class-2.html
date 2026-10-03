@@ -1,0 +1,86 @@
+<!-- Program: Modifying Element Content (textContent, innerText, innerHTML) -->
+
+<html>
+
+<head>
+    <title>Class 2 - Modifying Element Content</title>
+</head>
+
+<body>
+
+    <h1>Class 2: Modifying Element Content</h1>
+    <p>JavaScript can read and update the text or HTML markup inside any element.</p>
+
+    <!-- Target element to modify -->
+    <div id="targetElement">
+        Original Content: <strong>Hello World!</strong>
+    </div>
+
+    <br>
+
+    <!-- Buttons to change content -->
+    <button onclick="applyTextContent()">1. Set textContent</button>
+    <button onclick="applyInnerHTML()">2. Set innerHTML (with HTML tags)</button>
+    <button onclick="compareReading()">3. Compare Reading (text vs HTML)</button>
+    <button onclick="resetContent()">Reset Content</button>
+
+    <hr>
+
+    <h3>Inspection Output:</h3>
+    <pre id="output">Click a button above to test content modification...</pre>
+
+    <script>
+        const target = document.getElementById("targetElement");
+
+        // 1. textContent: sets plain text only (does NOT parse HTML tags)
+        function applyTextContent() {
+            target.textContent = "Updated using textContent: <em>Tags are treated as plain text, not HTML!</em>";
+            document.getElementById("output").innerText = 
+                "Notice that the <em> tags are printed literally on screen as text, not in italics!";
+        }
+
+        // 2. innerHTML: parses string as HTML markup and creates real DOM elements
+        function applyInnerHTML() {
+            target.innerHTML = "<h4>Rendered using innerHTML!</h4><p>This button was inserted dynamically: <button onclick=\"alert('Dynamic button clicked!')\">Click Me</button></p>";
+            document.getElementById("output").innerText = 
+                "The browser parsed the <h4>, <p>, and <button> HTML tags into live interactive elements!";
+        }
+
+        // 3. Comparing textContent vs innerText vs innerHTML
+        function compareReading() {
+            const log = "--- Comparison ---\n" +
+                        "1. textContent : " + target.textContent + "\n" +
+                        "2. innerText   : " + target.innerText + "\n" +
+                        "3. innerHTML   : " + target.innerHTML;
+            document.getElementById("output").innerText = log;
+            console.log(log);
+        }
+
+        // Reset to initial content
+        function resetContent() {
+            target.innerHTML = "Original Content: <strong>Hello World!</strong>";
+            document.getElementById("output").innerText = "Content reset to original.";
+        }
+    </script>
+
+    <!--
+        ====================================================
+        Class 2 Summary: Modifying Element Content
+        ====================================================
+
+        1. Differences:
+           - element.textContent : Sets or returns plain text. Does not interpret HTML tags.
+             Safe against Cross-Site Scripting (XSS).
+           
+           - element.innerText   : Sets or returns visible text as displayed on screen.
+           
+           - element.innerHTML   : Sets or returns raw HTML tags, allowing injection of new tags.
+
+        2. Beginner Tip:
+           - Use .textContent when inserting user-supplied text to prevent security bugs.
+           - Use .innerHTML only when you intentionally want to inject HTML tags (like <b>, <p>, <button>).
+    -->
+
+</body>
+
+</html>

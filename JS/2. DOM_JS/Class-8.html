@@ -1,0 +1,119 @@
+<!-- Program: Form Handling and Client-Side Validation -->
+
+<html>
+
+<head>
+    <title>Class 8 - Form Handling & Validation</title>
+</head>
+
+<body>
+
+    <h1>Class 8: Form Handling & Validation</h1>
+    <p>Learn how to intercept HTML form submissions, validate inputs with JavaScript, and stop page refresh using <code>event.preventDefault()</code>.</p>
+
+    <!-- Standard HTML Form without CSS -->
+    <form id="signupForm">
+        <div>
+            <label for="fullName">Full Name: </label>
+            <input type="text" id="fullName" placeholder="e.g. John Doe">
+            <span id="nameError" style="color: red;"></span>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="email">Email Address: </label>
+            <input type="text" id="email" placeholder="e.g. john@example.com">
+            <span id="emailError" style="color: red;"></span>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="password">Password: </label>
+            <input type="password" id="password" placeholder="At least 6 characters">
+            <span id="passwordError" style="color: red;"></span>
+        </div>
+
+        <br>
+
+        <button type="submit">Submit Registration</button>
+    </form>
+
+    <hr>
+
+    <h3>Submission Result:</h3>
+    <pre id="output">Fill the form and click Submit to see validation results...</pre>
+
+    <script>
+        const form = document.getElementById("signupForm");
+        const nameInput = document.getElementById("fullName");
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+        const output = document.getElementById("output");
+
+        // Attach listener to 'submit' event of the form
+        form.addEventListener("submit", function(event) {
+            // 1. preventDefault() stops browser from refreshing the page!
+            event.preventDefault();
+
+            let isValid = true;
+
+            // Clear previous error messages
+            document.getElementById("nameError").innerText = "";
+            document.getElementById("emailError").innerText = "";
+            document.getElementById("passwordError").innerText = "";
+
+            // Validate Full Name
+            if (nameInput.value.trim().length < 3) {
+                document.getElementById("nameError").innerText = " Name must be at least 3 characters!";
+                isValid = false;
+            }
+
+            // Validate Email (must include @ and .)
+            const emailVal = emailInput.value.trim();
+            if (!emailVal.includes("@") || !emailVal.includes(".")) {
+                document.getElementById("emailError").innerText = " Please enter a valid email address!";
+                isValid = false;
+            }
+
+            // Validate Password
+            if (passwordInput.value.length < 6) {
+                document.getElementById("passwordError").innerText = " Password must be at least 6 characters!";
+                isValid = false;
+            }
+
+            // If valid, show success
+            if (isValid) {
+                const userData = {
+                    name: nameInput.value.trim(),
+                    email: emailInput.value.trim(),
+                    password: passwordInput.value
+                };
+
+                output.innerText = "Form validation succeeded!\nData ready for server:\n" + JSON.stringify(userData, null, 2);
+                form.reset(); // clears the input fields
+            } else {
+                output.innerText = "Validation failed. Please correct the errors above.";
+            }
+        });
+    </script>
+
+    <!--
+        ====================================================
+        Class 8 Summary: Form Handling & Validation
+        ====================================================
+
+        1. event.preventDefault():
+           - Default behavior of HTML form submission is to refresh the entire page.
+           - In modern JavaScript and Full Stack apps, event.preventDefault() stops the refresh
+             so JavaScript can validate data and send it asynchronously to a backend API.
+
+        2. Reading Form Values:
+           - inputElement.value gives the current text inside the input box.
+           - .trim() removes unnecessary spaces at the start and end.
+    -->
+
+</body>
+
+</html>

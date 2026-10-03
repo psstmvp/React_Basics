@@ -1,0 +1,119 @@
+<!-- Program: Search and Filter with DOM -->
+
+<html>
+
+<head>
+    <title>Class 15 - Search and Filter</title>
+</head>
+
+<body>
+
+    <h1>Class 15: Search and Filter</h1>
+    <p>Connecting a live text search box and category filter dropdown to dynamically update a list of items using plain DOM manipulation.</p>
+
+    <!-- Search input and category dropdown -->
+    <div>
+        <label>Search Courses: </label>
+        <input type="text" id="searchInput" placeholder="Type course name...">
+
+        &nbsp;&nbsp;
+
+        <label>Category: </label>
+        <select id="categorySelect">
+            <option value="all">All Categories</option>
+            <option value="frontend">Frontend</option>
+            <option value="backend">Backend</option>
+            <option value="database">Database</option>
+        </select>
+    </div>
+
+    <h3>Available Courses:</h3>
+    <ul id="courseList">
+        <!-- Rendered courses will appear here -->
+    </ul>
+
+    <p>Matching Results: <strong id="resultsCount">0</strong></p>
+
+    <hr>
+
+    <h3>Diagnostics:</h3>
+    <pre id="output">Type in search or change category to filter...</pre>
+
+    <script>
+        // Course data in memory
+        const courses = [
+            { id: 1, title: "HTML & CSS Fundamentals", category: "frontend" },
+            { id: 2, title: "JavaScript Core Basics", category: "frontend" },
+            { id: 3, title: "React.js Framework", category: "frontend" },
+            { id: 4, title: "Node.js & Express APIs", category: "backend" },
+            { id: 5, title: "Python Backend Services", category: "backend" },
+            { id: 6, title: "MongoDB Database Design", category: "database" },
+            { id: 7, title: "PostgreSQL Relational DB", category: "database" }
+        ];
+
+        const searchInput = document.getElementById("searchInput");
+        const categorySelect = document.getElementById("categorySelect");
+        const courseList = document.getElementById("courseList");
+        const resultsCount = document.getElementById("resultsCount");
+        const output = document.getElementById("output");
+
+        function filterAndRender() {
+            const query = searchInput.value.toLowerCase().trim();
+            const selectedCategory = categorySelect.value;
+
+            // Filter array
+            const filtered = courses.filter(function(course) {
+                const matchesSearch = course.title.toLowerCase().includes(query);
+                const matchesCategory = selectedCategory === "all" || course.category === selectedCategory;
+                return matchesSearch && matchesCategory;
+            });
+
+            // Clear existing list items
+            courseList.innerHTML = "";
+
+            if (filtered.length === 0) {
+                courseList.innerHTML = "<li>No courses match your filter.</li>";
+            } else {
+                filtered.forEach(function(course) {
+                    const li = document.createElement("li");
+                    li.innerHTML = "<strong>" + course.title + "</strong> [" + course.category.toUpperCase() + "]";
+                    courseList.appendChild(li);
+                });
+            }
+
+            // Update count
+            resultsCount.innerText = filtered.length;
+
+            // Output diagnostics
+            output.innerText = 
+                "Search Query : '" + query + "'\n" +
+                "Category     : " + selectedCategory + "\n" +
+                "Found        : " + filtered.length + " matching courses";
+        }
+
+        // Attach event listeners for real-time reactivity
+        searchInput.addEventListener("input", filterAndRender);
+        categorySelect.addEventListener("change", filterAndRender);
+
+        // Initial render on page load
+        filterAndRender();
+    </script>
+
+    <!--
+        ====================================================
+        Class 15 Summary: Search & Filter
+        ====================================================
+
+        1. How it works:
+           - Listens to 'input' on text box and 'change' on select dropdown.
+           - Runs .filter() on our data array to find matching items.
+           - Clears courseList.innerHTML and appends new matching <li> tags.
+
+        2. Relevance to Full Stack & React:
+           - This is the exact foundational logic used in e-commerce search,
+             product catalogs, and data tables!
+    -->
+
+</body>
+
+</html>

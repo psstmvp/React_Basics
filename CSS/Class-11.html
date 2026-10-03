@@ -1,0 +1,72 @@
+<!-- Program: Border Properties -->
+
+<html>
+
+<head>
+    <title>Border Properties</title>
+
+    <style>
+        .solid-border {
+            border-style: solid; /* Sets border style to a solid line */
+            border-width: 3px;   /* Sets border thickness to 3 pixels */
+            border-color: blue;  /* Sets border color to blue */
+        }
+
+        .dashed-border {
+            border-style: dashed; /* Sets border style to a dashed line */
+            border-width: 5px;
+            border-color: red;
+        }
+
+        .dotted-border {
+            border-style: dotted; /* Sets border style to a dotted line */
+            border-width: 4px;
+            border-color: green;
+        }
+
+        .shorthand-border {
+            border: 2px solid purple; /* Sets width, style, and color in 1 line */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Border Properties Example</h1>
+
+    <p class="solid-border">This paragraph has a blue solid border.</p>
+    <!-- Solid blue border -->
+
+    <p class="dashed-border">This paragraph has a red dashed border.</p>
+    <!-- Dashed red border -->
+
+    <p class="dotted-border">This paragraph has a green dotted border.</p>
+    <!-- Dotted green border -->
+
+    <p class="shorthand-border">This paragraph uses CSS shorthand to draw a purple solid border.</p>
+    <!-- Shorthand purple border -->
+
+    <!--
+        Border Properties
+
+        CSS border properties allow you to draw a line border around any element.
+
+        Properties:
+        1. border-style: Sets the design of the border.
+           - solid (solid line)
+           - dashed (dashed line)
+           - dotted (dotted line)
+           - double (double line)
+           - none (no border)
+
+        2. border-width: Sets border thickness (e.g. 2px, 5px).
+
+        3. border-color: Sets the border line color.
+
+        4. border (Shorthand): Combine all three in one declaration:
+           border: width style color; (e.g., border: 2px solid purple;)
+    -->
+
+</body>
+
+</html>

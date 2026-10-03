@@ -1,0 +1,105 @@
+<!-- Program: Creating and Appending Elements -->
+
+<html>
+
+<head>
+    <title>Class 5 - Creating and Appending Elements</title>
+</head>
+
+<body>
+
+    <h1>Class 5: Creating & Appending Elements</h1>
+    <p>JavaScript can create new HTML tags from scratch and add them to the page using <code>createElement()</code> and <code>appendChild()</code>.</p>
+
+    <!-- Inputs and action buttons -->
+    <input type="text" id="itemInput" placeholder="Enter an item name..." value="JavaScript Basics">
+    <button onclick="appendItem()">Append to Bottom (appendChild)</button>
+    <button onclick="prependItem()">Prepend to Top (prepend)</button>
+
+    <h3>Shopping / Skill List:</h3>
+    <ul id="itemList">
+        <li>HTML Fundamentals <button onclick="removeItem(this)">Delete</button></li>
+        <li>CSS Basics <button onclick="removeItem(this)">Delete</button></li>
+    </ul>
+
+    <hr>
+
+    <h3>Status Output:</h3>
+    <pre id="output">Add or delete items above to see DOM creation logs...</pre>
+
+    <script>
+        const itemList = document.getElementById("itemList");
+        const itemInput = document.getElementById("itemInput");
+
+        // Helper function that creates a new <li> element with text and a delete button
+        function createListNode(text) {
+            // 1. createElement creates a new HTML tag in memory
+            const li = document.createElement("li");
+            li.innerText = text + " ";
+
+            // Create delete button
+            const deleteBtn = document.createElement("button");
+            deleteBtn.innerText = "Delete";
+            deleteBtn.onclick = function() {
+                removeItem(this);
+            };
+
+            // Attach button to the <li>
+            li.appendChild(deleteBtn);
+
+            return li;
+        }
+
+        // Appends to the end of the list
+        function appendItem() {
+            const text = itemInput.value.trim();
+            if (!text) return alert("Please enter text!");
+
+            const newLi = createListNode(text);
+            itemList.appendChild(newLi); // Inserts as last child
+
+            document.getElementById("output").innerText = 
+                "Created new <li> element and called itemList.appendChild(newLi).\nAdded: " + text;
+            itemInput.value = "";
+        }
+
+        // Prepends to the start of the list
+        function prependItem() {
+            const text = itemInput.value.trim();
+            if (!text) return alert("Please enter text!");
+
+            const newLi = createListNode(text);
+            itemList.prepend(newLi); // Inserts as first child
+
+            document.getElementById("output").innerText = 
+                "Created new <li> element and called itemList.prepend(newLi).\nAdded to top: " + text;
+            itemInput.value = "";
+        }
+
+        // Removes an item from the DOM
+        function removeItem(button) {
+            const li = button.parentElement;
+            li.remove(); // Removes element directly from DOM
+            document.getElementById("output").innerText = "Item removed using li.remove()";
+        }
+    </script>
+
+    <!--
+        ====================================================
+        Class 5 Summary: Creating & Appending Elements
+        ====================================================
+
+        1. Step-by-Step Element Creation:
+           - Step 1: document.createElement("tag") : Creates tag in memory.
+           - Step 2: Set text or attributes         : element.innerText = "text";
+           - Step 3: Insert into the DOM           : parent.appendChild(element);
+
+        2. Methods:
+           - parent.appendChild(child) : Inserts element as the LAST child.
+           - parent.prepend(child)     : Inserts element as the FIRST child.
+           - element.remove()          : Deletes the element from the webpage.
+    -->
+
+</body>
+
+</html>

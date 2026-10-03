@@ -1,0 +1,50 @@
+<!-- Program: ID Selector -->
+
+<html>
+
+<head>
+    <title>ID Selector</title>
+
+    <style>
+        /* ID selectors start with a hash symbol (#) followed by the ID name */
+
+        #main-heading {
+            color: darkblue; /* Targets the single element with id="main-heading" */
+        }
+
+        #special-paragraph {
+            color: purple;
+            font-size: 20px; /* Targets the single element with id="special-paragraph" */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="main-heading">ID Selector Example</h1>
+    <!-- Targeted by #main-heading ID style -->
+
+    <p>This is a normal paragraph.</p>
+
+    <p id="special-paragraph">This is a unique paragraph with special styling.</p>
+    <!-- Targeted by #special-paragraph ID style -->
+
+    <!--
+        ID Selector
+
+        The ID Selector is used to target a single, unique element on the webpage.
+
+        Syntax:
+        #idname {
+            property: value;
+        }
+
+        Key Points:
+        1. ID names in CSS start with a hash (#) inside the <style> block.
+        2. In the HTML tag, we write the id attribute WITHOUT the hash (e.g. id="main-heading").
+        3. An ID should only be used once per HTML page.
+    -->
+
+</body>
+
+</html>

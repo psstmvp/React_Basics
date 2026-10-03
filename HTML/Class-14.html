@@ -1,0 +1,141 @@
+<!-- Program: Registration Form -->
+
+<html>
+
+<head>
+
+  <title>Registration Form</title>
+
+</head>
+
+<body>
+
+  <h1>Registration Form</h1>
+  <!-- Main heading of the webpage -->
+
+  <form method="post" enctype="multipart/form-data">
+
+    <table border="1" cellpadding="5">
+
+      <tr>
+        <td>First Name</td>
+        <td><input type="text" name="txt_fname"></td>
+      </tr>
+
+      <tr>
+        <td>Last Name</td>
+        <td><input type="text" name="txt_lname"></td>
+      </tr>
+
+      <tr>
+        <td>Gender</td>
+        <td>
+          <input type="radio" name="rd_gender" value="Male"> Male
+          <input type="radio" name="rd_gender" value="Female"> Female
+        </td>
+      </tr>
+
+      <tr>
+        <td>Marital Status</td>
+        <td>
+          <input type="radio" name="rd_marital" value="Single"> Single
+          <input type="radio" name="rd_marital" value="Married"> Married
+        </td>
+      </tr>
+
+      <tr>
+        <td>Department</td>
+        <td>
+          <select name="sel_department">
+            <option value="">--Select--</option>
+            <option value="cs">Computer Science</option>
+            <option value="it">Information Technology</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Qualification</td>
+        <td>
+          <input type="checkbox" name="chk_mca" value="MCA"> MCA
+          <input type="checkbox" name="chk_mba" value="MBA"> MBA
+        </td>
+      </tr>
+
+      <tr>
+        <td>Email</td>
+        <td><input type="text" name="txt_email"></td>
+      </tr>
+
+      <tr>
+        <td>Phone Number</td>
+        <td><input type="text" name="txt_phone"></td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td>
+          <textarea name="txt_address" rows="3" cols="25"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>Date of Birth</td>
+        <td><input type="date" name="txt_dob"></td>
+      </tr>
+
+      <tr>
+        <td>Username</td>
+        <td><input type="text" name="txt_username"></td>
+      </tr>
+      <tr>
+        <td>Profile Photo</td>
+        <td><input type="file" name="file_photo"></td>
+      </tr>
+
+      <tr>
+        <td colspan="2" align="center">
+          <input type="button" name="btn_check" value="Check Availability">
+        </td>
+      </tr>
+
+      <tr>
+        <td>Password</td>
+        <td><input type="password" name="txt_password"></td>
+      </tr>
+
+      <tr>
+        <td>Retype Password</td>
+        <td><input type="password" name="txt_repassword"></td>
+      </tr>
+
+      <tr>
+        <td>Security Question</td>
+        <td>
+          <select name="sel_security">
+            <option value="">--Select--</option>
+            <option value="q1">What is your favourite colour?</option>
+            <option value="q2">What is your favourite food?</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Answer</td>
+        <td><input type="text" name="txt_answer"></td>
+      </tr>
+
+
+
+      <tr>
+        <td colspan="2" align="center">
+          <input type="submit" name="btn_submit" value="Submit">
+          <input type="reset" name="btn_reset" value="Reset">
+        </td>
+      </tr>
+
+    </table>
+
+  </form>
+
+</body>
+
+</html>

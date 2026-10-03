@@ -1,0 +1,75 @@
+<!-- Program: Margin (Outside Space) -->
+
+<html>
+
+<head>
+    <title>Margin (Outside Space)</title>
+
+    <style>
+        .my-box {
+            border: 2px solid red;
+            background-color: lightpink;
+            padding: 10px;
+        }
+
+        .no-margin {
+            margin: 0px; /* No space outside the border */
+        }
+
+        .large-margin {
+            margin: 40px; /* Adds 40px of outside space on all sides */
+        }
+
+        .bottom-margin {
+            margin-bottom: 50px; /* Adds 50px space below this element */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Margin Example</h1>
+
+    <div class="my-box no-margin">
+        <b>Box 1: No Margin</b>
+    </div>
+    <div class="my-box no-margin">
+        <b>Box 2: No Margin</b>
+        <p>Notice how Box 1 and Box 2 touch each other directly because they have no margin.</p>
+    </div>
+
+    <br><hr><br>
+
+    <div class="my-box bottom-margin">
+        <b>Box 3: Bottom Margin (margin-bottom: 50px)</b>
+    </div>
+    
+    <div class="my-box">
+        <b>Box 4: Normal Box</b>
+        <p>Notice the large gap between Box 3 and Box 4 caused by Box 3's bottom margin.</p>
+    </div>
+
+    <br><hr><br>
+
+    <div class="my-box large-margin">
+        <b>Box 5: Large Margin (margin: 40px)</b>
+        <p>This box has space pushing away on all four outside sides.</p>
+    </div>
+
+    <!--
+        Margin (Outside Space)
+
+        Margin is the space outside the border of an element.
+        It is used to create space between different elements on the page.
+
+        Properties:
+        - margin: Sets margin on all 4 sides at once (e.g. margin: 40px;).
+        - margin-top: Space above.
+        - margin-bottom: Space below.
+        - margin-left: Space on the left.
+        - margin-right: Space on the right.
+    -->
+
+</body>
+
+</html>

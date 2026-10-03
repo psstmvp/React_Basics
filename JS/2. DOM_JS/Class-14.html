@@ -1,0 +1,71 @@
+<!-- Program: Modal Popup Dialog Component -->
+
+<html>
+
+<head>
+    <title>Class 14 - Modal Popup Dialog</title>
+</head>
+
+<body>
+
+    <h1>Class 14: Modal Popup Dialog</h1>
+    <p>Using HTML5 native <code>&lt;dialog&gt;</code> element controlled by JavaScript's <code>showModal()</code> and <code>close()</code> methods without requiring custom CSS.</p>
+
+    <!-- Button to open dialog -->
+    <button onclick="openModal()">Open Dialog Modal</button>
+
+    <!-- Native HTML5 Dialog (No CSS needed!) -->
+    <dialog id="myDialog">
+        <h3>User Confirmation Dialog</h3>
+        <p>This is a native dialog popup controlled with JavaScript.</p>
+        <button onclick="confirmDialog()">Confirm</button>
+        <button onclick="closeModal()">Close</button>
+    </dialog>
+
+    <hr>
+
+    <h3>Status Output:</h3>
+    <pre id="output">Click the button above to launch the dialog...</pre>
+
+    <script>
+        const dialog = document.getElementById("myDialog");
+        const output = document.getElementById("output");
+
+        // Opens the dialog modal
+        function openModal() {
+            // .showModal() is built into HTML5 dialog elements
+            dialog.showModal();
+            output.innerText = "dialog.showModal() called: Dialog is now open.";
+        }
+
+        // Closes the dialog
+        function closeModal() {
+            dialog.close();
+            output.innerText = "dialog.close() called: Dialog is closed.";
+        }
+
+        function confirmDialog() {
+            closeModal();
+            alert("Action confirmed!");
+        }
+    </script>
+
+    <!--
+        ====================================================
+        Class 14 Summary: Native HTML5 Dialog
+        ====================================================
+
+        1. The <dialog> Element:
+           - Native HTML5 element supported by all modern browsers.
+           - Built-in methods:
+             * dialog.showModal() : Opens as a modal on top of everything.
+             * dialog.close()     : Closes the dialog.
+             * Pressing 'Escape' closes it automatically!
+
+        2. No CSS Required:
+           - Browsers provide built-in centering, backdrop dimming, and focus trapping.
+    -->
+
+</body>
+
+</html>

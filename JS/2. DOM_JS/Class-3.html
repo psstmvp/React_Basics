@@ -1,0 +1,108 @@
+<!-- Program: Modifying Attributes and Properties -->
+
+<html>
+
+<head>
+    <title>Class 3 - Modifying Attributes & Properties</title>
+</head>
+
+<body>
+
+    <h1>Class 3: Modifying Attributes & Properties</h1>
+    <p>HTML elements have attributes like <code>href</code>, <code>src</code>, <code>type</code>, and <code>disabled</code> that JavaScript can read, change, or remove.</p>
+
+    <!-- 1. Link Attribute Demo -->
+    <h3>1. Link Attribute Demo</h3>
+    <a id="myLink" href="https://www.wikipedia.org" target="_blank" title="Original Link">Go to Wikipedia</a>
+    <br><br>
+    <button onclick="changeLink()">Change Link Destination (setAttribute)</button>
+    <button onclick="removeLinkTitle()">Remove Title Attribute (removeAttribute)</button>
+
+    <hr>
+
+    <!-- 2. Show/Hide Password Demo -->
+    <h3>2. Show / Hide Password Demo</h3>
+    <input type="password" id="passwordField" value="SuperSecret123">
+    <button onclick="togglePassword()">Show / Hide Password</button>
+
+    <hr>
+
+    <!-- 3. Toggle Disabled Button Demo -->
+    <h3>3. Toggle Disabled State Demo</h3>
+    <button id="submitBtn" disabled>Submit Button (Currently Disabled)</button>
+    <button onclick="toggleDisabled()">Toggle Disabled Property</button>
+
+    <hr>
+
+    <h3>Status Output:</h3>
+    <pre id="output">Interact with the buttons above to test attribute modifications...</pre>
+
+    <script>
+        // 1. getAttribute, setAttribute, removeAttribute
+        function changeLink() {
+            const link = document.getElementById("myLink");
+            const oldHref = link.getAttribute("href");
+
+            // Change destination
+            link.setAttribute("href", "https://developer.mozilla.org");
+            link.innerText = "Go to MDN Web Docs";
+            link.setAttribute("title", "MDN Web Docs");
+
+            document.getElementById("output").innerText = 
+                "Updated link href from '" + oldHref + "' to '" + link.getAttribute("href") + "'";
+        }
+
+        function removeLinkTitle() {
+            const link = document.getElementById("myLink");
+            link.removeAttribute("title");
+            document.getElementById("output").innerText = "Removed 'title' attribute using removeAttribute('title').";
+        }
+
+        // 2. Toggle password input type
+        function togglePassword() {
+            const input = document.getElementById("passwordField");
+            const currentType = input.getAttribute("type");
+
+            if (currentType === "password") {
+                input.setAttribute("type", "text");
+                document.getElementById("output").innerText = "Changed input type from 'password' to 'text' (Visible).";
+            } else {
+                input.setAttribute("type", "password");
+                document.getElementById("output").innerText = "Changed input type from 'text' to 'password' (Hidden).";
+            }
+        }
+
+        // 3. Modifying DOM Boolean property (disabled)
+        function toggleDisabled() {
+            const btn = document.getElementById("submitBtn");
+            btn.disabled = !btn.disabled;
+
+            btn.innerText = btn.disabled 
+                ? "Submit Button (Currently Disabled)" 
+                : "Submit Button (Now Enabled!)";
+
+            document.getElementById("output").innerText = "submitBtn.disabled is now: " + btn.disabled;
+        }
+    </script>
+
+    <!--
+        ====================================================
+        Class 3 Summary: Modifying Attributes & Properties
+        ====================================================
+
+        1. Attribute Methods:
+           - element.getAttribute("attr")    : Reads attribute value.
+           - element.setAttribute("attr", "val") : Updates or adds an attribute.
+           - element.removeAttribute("attr") : Deletes an attribute.
+           - element.hasAttribute("attr")    : Returns true or false.
+
+        2. Direct Property Access:
+           - Some HTML attributes have direct DOM properties:
+             input.value
+             button.disabled = true;
+             checkbox.checked = false;
+    -->
+
+</body>
+
+</html>

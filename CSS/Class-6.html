@@ -1,0 +1,57 @@
+<!-- Program: Class Selector -->
+
+<html>
+
+<head>
+    <title>Class Selector</title>
+
+    <style>
+        /* Class selectors start with a dot (.) followed by the class name */
+
+        .red-text {
+            color: red; /* Targets elements with class="red-text" */
+        }
+
+        .highlight-box {
+            background-color: yellow; /* Targets elements with class="highlight-box" */
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Class Selector Example</h1>
+
+    <h2 class="red-text">Heading with Red Class</h2>
+    <!-- This heading will be red -->
+
+    <p class="red-text">Paragraph with Red Class.</p>
+    <!-- This paragraph will also be red -->
+
+    <p class="highlight-box">Paragraph with Highlight Class.</p>
+    <!-- This paragraph will have a yellow background -->
+
+    <p>This is a plain paragraph with no class styling.</p>
+    <!-- This paragraph is not styled by class selectors -->
+
+    <!--
+        Class Selector
+
+        The Class Selector is used to select one or more HTML elements with a specific 
+        class attribute.
+
+        Syntax:
+        .classname {
+            property: value;
+        }
+
+        Key Points:
+        1. Class names in CSS must start with a dot (.) inside the <style> block.
+        2. In the HTML tag, we reference the class name WITHOUT the dot (e.g. class="red-text").
+        3. Multiple elements can share the same class.
+    -->
+
+</body>
+
+</html>

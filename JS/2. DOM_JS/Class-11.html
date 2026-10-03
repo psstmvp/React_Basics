@@ -1,0 +1,81 @@
+<!-- Program: Timers in DOM (Stopwatch) -->
+
+<html>
+
+<head>
+    <title>Class 11 - Timers in DOM (Stopwatch)</title>
+</head>
+
+<body>
+
+    <h1>Class 11: Timers in DOM (Stopwatch)</h1>
+    <p>Combining <code>setInterval()</code> and <code>clearInterval()</code> with DOM updates to build a simple digital stopwatch.</p>
+
+    <!-- Stopwatch Display -->
+    <h2>Timer Display: <span id="timeDisplay">0</span> seconds</h2>
+
+    <!-- Control Buttons -->
+    <button onclick="startTimer()">Start</button>
+    <button onclick="pauseTimer()">Pause</button>
+    <button onclick="resetTimer()">Reset</button>
+
+    <hr>
+
+    <h3>Timer Status Log:</h3>
+    <pre id="output">Click Start to begin counting...</pre>
+
+    <script>
+        let seconds = 0;
+        let timerId = null; // Stores interval ID
+
+        const display = document.getElementById("timeDisplay");
+        const output = document.getElementById("output");
+
+        function startTimer() {
+            // Check if timer is already running to avoid creating duplicate intervals!
+            if (timerId !== null) return;
+
+            timerId = setInterval(function() {
+                seconds++;
+                display.innerText = seconds;
+            }, 1000); // 1000 milliseconds = 1 second
+
+            output.innerText = "Timer started (setInterval active).";
+        }
+
+        function pauseTimer() {
+            if (timerId !== null) {
+                clearInterval(timerId); // Stops the timer
+                timerId = null;
+                output.innerText = "Timer paused at " + seconds + " seconds.";
+            }
+        }
+
+        function resetTimer() {
+            pauseTimer();
+            seconds = 0;
+            display.innerText = seconds;
+            output.innerText = "Timer reset to 0 seconds.";
+        }
+    </script>
+
+    <!--
+        ====================================================
+        Class 11 Summary: Timers in DOM
+        ====================================================
+
+        1. setInterval(function, milliseconds):
+           - Runs the given function repeatedly every X milliseconds.
+           - Returns a unique interval ID used to cancel it.
+
+        2. clearInterval(timerId):
+           - Cancels an active interval timer.
+
+        3. Best Practice:
+           - Always store the timerId in a variable.
+           - Prevent multiple overlapping timers by verifying timerId === null before starting.
+    -->
+
+</body>
+
+</html>

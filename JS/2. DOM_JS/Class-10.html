@@ -1,0 +1,102 @@
+<!-- Program: Browser Object Model (BOM) and Web Storage -->
+
+<html>
+
+<head>
+    <title>Class 10 - BOM & Web Storage</title>
+</head>
+
+<body>
+
+    <h1>Class 10: BOM & Web Storage</h1>
+    <p>The Browser Object Model (BOM) allows JavaScript to interact with the browser window, screen, and persist data in <code>localStorage</code>.</p>
+
+    <!-- 1. localStorage demo -->
+    <h3>1. Save and Load Data from localStorage</h3>
+    <input type="text" id="userInput" placeholder="Enter your name to remember...">
+    <button onclick="saveName()">Save to localStorage</button>
+    <button onclick="loadName()">Read from localStorage</button>
+    <button onclick="clearName()">Clear localStorage</button>
+
+    <hr>
+
+    <!-- 2. Window info demo -->
+    <h3>2. Window & Browser Information</h3>
+    <button onclick="showBrowserInfo()">Get Window & Browser Info</button>
+
+    <hr>
+
+    <h3>Output Display:</h3>
+    <pre id="output">Click buttons above to test localStorage and BOM properties...</pre>
+
+    <script>
+        const output = document.getElementById("output");
+        const input = document.getElementById("userInput");
+
+        // Automatically read saved name when page loads
+        window.addEventListener("DOMContentLoaded", function() {
+            const saved = localStorage.getItem("student_name");
+            if (saved) {
+                output.innerText = "Welcome back, " + saved + "! (Loaded from localStorage)";
+                input.value = saved;
+            }
+        });
+
+        // Save data to localStorage
+        function saveName() {
+            const val = input.value.trim();
+            if (!val) return alert("Please type a name!");
+
+            localStorage.setItem("student_name", val);
+            output.innerText = "Saved '" + val + "' to localStorage.\nRefresh this page, and the name will still be remembered!";
+        }
+
+        // Read data from localStorage
+        function loadName() {
+            const saved = localStorage.getItem("student_name");
+            if (saved) {
+                output.innerText = "Retrieved from localStorage: " + saved;
+            } else {
+                output.innerText = "No name found in localStorage.";
+            }
+        }
+
+        // Clear data from localStorage
+        function clearName() {
+            localStorage.removeItem("student_name");
+            input.value = "";
+            output.innerText = "Cleared 'student_name' from localStorage.";
+        }
+
+        // Inspect window properties
+        function showBrowserInfo() {
+            output.innerText = 
+                "Window Width  : " + window.innerWidth + "px\n" +
+                "Window Height : " + window.innerHeight + "px\n" +
+                "Current URL   : " + window.location.href + "\n" +
+                "Language      : " + navigator.language;
+        }
+    </script>
+
+    <!--
+        ====================================================
+        Class 10 Summary: BOM & Web Storage
+        ====================================================
+
+        1. localStorage:
+           - Stores data in the user's browser with NO expiration date.
+           - localStorage.setItem("key", "value") : Saves data.
+           - localStorage.getItem("key")          : Reads data.
+           - localStorage.removeItem("key")       : Deletes data.
+           - localStorage.clear()                 : Clears everything.
+
+        2. Window Object (BOM):
+           - Represents the browser window.
+           - window.innerWidth / window.innerHeight
+           - window.location.href (URL navigation)
+           - navigator (browser and OS details)
+    -->
+
+</body>
+
+</html>

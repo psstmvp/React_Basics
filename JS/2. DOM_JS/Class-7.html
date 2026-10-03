@@ -1,0 +1,90 @@
+<!-- Program: Keyboard and Input Events -->
+
+<html>
+
+<head>
+    <title>Class 7 - Keyboard and Input Events</title>
+</head>
+
+<body>
+
+    <h1>Class 7: Keyboard & Input Events</h1>
+    <p>Keyboard and input events capture user typing in real time as keys are pressed or fields change.</p>
+
+    <!-- 1. Real-time typing mirror -->
+    <h3>1. 'input' Event (Live Mirror Typing)</h3>
+    <label>Type your name: </label>
+    <input type="text" id="nameInput" placeholder="Start typing here...">
+    <p>Live Output: <strong id="mirrorOutput">Waiting for typing...</strong></p>
+
+    <hr>
+
+    <!-- 2. Character counter -->
+    <h3>2. Character Counter</h3>
+    <label>Write a short note (Max 50 characters):</label><br>
+    <textarea id="noteInput" rows="3" cols="40" maxlength="50" placeholder="Type here..."></textarea>
+    <p id="counter">Characters typed: 0 / 50</p>
+
+    <hr>
+
+    <!-- 3. Keydown event -->
+    <h3>3. 'keydown' Event</h3>
+    <p>Press any key inside this box:</p>
+    <input type="text" id="keyTestInput" placeholder="Press Enter, Escape, etc.">
+
+    <hr>
+
+    <h3>Keystroke Info Output:</h3>
+    <pre id="output">Keystroke details will appear here...</pre>
+
+    <script>
+        const nameInput = document.getElementById("nameInput");
+        const mirrorOutput = document.getElementById("mirrorOutput");
+        const noteInput = document.getElementById("noteInput");
+        const counter = document.getElementById("counter");
+        const keyTestInput = document.getElementById("keyTestInput");
+        const output = document.getElementById("output");
+
+        // 1. 'input' event fires on every keystroke
+        nameInput.addEventListener("input", function(e) {
+            const value = e.target.value;
+            mirrorOutput.innerText = value.length > 0 ? value : "Waiting for typing...";
+        });
+
+        // 2. Character count calculation
+        noteInput.addEventListener("input", function(e) {
+            const count = e.target.value.length;
+            counter.innerText = "Characters typed: " + count + " / 50";
+        });
+
+        // 3. 'keydown' event captures the specific key pressed
+        keyTestInput.addEventListener("keydown", function(e) {
+            output.innerText = 
+                "Key Pressed : " + e.key + "\n" +
+                "Key Code    : " + e.code;
+
+            if (e.key === "Enter") {
+                alert("You pressed Enter with value: " + e.target.value);
+            }
+        });
+    </script>
+
+    <!--
+        ====================================================
+        Class 7 Summary: Keyboard & Input Events
+        ====================================================
+
+        1. 'input' Event:
+           - Triggers immediately whenever the text inside an <input> or <textarea>
+             changes (typing, deleting, cutting, pasting).
+           - Best for: Live character counters, instant search filters.
+
+        2. Keyboard Events:
+           - 'keydown' : Triggered when a key is pressed down.
+           - 'keyup'   : Triggered when a key is released.
+           - event.key gives the exact character ("Enter", "Backspace", "a", "A").
+    -->
+
+</body>
+
+</html>

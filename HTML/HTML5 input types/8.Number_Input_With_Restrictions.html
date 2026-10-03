@@ -1,0 +1,73 @@
+
+<!-- Program: HTML5 Number Input with Step -->
+
+<!DOCTYPE html>
+<!-- Declares the document type as HTML5 -->
+
+<html>
+
+<head>
+
+  <title>HTML5 Number Input with Step</title>
+
+</head>
+
+<body>
+
+  <h1>HTML5 Number Input with Step</h1>
+  <!-- Main heading of the webpage -->
+
+  <p>
+    The <b>input type="number"</b> is used for input fields
+    that should contain numeric values.
+  </p>
+
+  <p>
+    The <b>min</b>, <b>max</b>, and <b>step</b> attributes are
+    used to specify the minimum value, maximum value,
+    and interval between numbers.
+  </p>
+
+  <hr>
+
+  <form>
+
+    <table border="1" cellpadding="5">
+
+      <tr>
+        <td>Quantity</td>
+        <td>
+          <input type="number" name="txt_quantity" min="0" max="100" step="10" value="30">
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" align="center">
+          <input type="submit" name="btn_submit" value="Submit">
+          <input type="reset" name="btn_reset" value="Reset">
+        </td>
+      </tr>
+
+    </table>
+
+  </form>
+
+  <p>
+    <b>Attribute Description</b>
+  </p>
+
+  <ul>
+    <li><b>min</b> : Specifies the minimum value.</li>
+    <li><b>max</b> : Specifies the maximum value.</li>
+    <li><b>step</b> : Specifies the interval between values.</li>
+    <li><b>value</b> : Specifies the default value.</li>
+  </ul>
+
+  <p>
+    <b>Note:</b> The <b>type="number"</b> input may not be
+    supported in some older web browsers.
+  </p>
+
+</body>
+
+</html>

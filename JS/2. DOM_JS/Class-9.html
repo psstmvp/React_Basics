@@ -1,0 +1,102 @@
+<!-- Program: Event Propagation and Event Delegation -->
+
+<html>
+
+<head>
+    <title>Class 9 - Event Bubbling & Delegation</title>
+</head>
+
+<body>
+
+    <h1>Class 9: Event Bubbling & Delegation</h1>
+    <p>Understand how events travel up the DOM tree (Bubbling) and how to manage dynamic buttons with a single parent listener (Event Delegation).</p>
+
+    <!-- 1. Event Bubbling Section -->
+    <h3>1. Event Bubbling Demo</h3>
+    <p>Click on the inner button to watch the click event bubble up from Inner -> Middle -> Outer!</p>
+
+    <div id="outerBox">
+        [OUTER CONTAINER]
+        <div id="middleBox">
+            [MIDDLE CONTAINER]
+            <br>
+            <button id="innerBtn">Click Me (Inner Target)</button>
+        </div>
+    </div>
+
+    <br>
+    <label>
+        <input type="checkbox" id="stopBubbleCheckbox"> Stop bubbling with <code>event.stopPropagation()</code>
+    </label>
+
+    <hr>
+
+    <!-- 2. Event Delegation Section -->
+    <h3>2. Event Delegation Demo</h3>
+    <p>Instead of adding separate listeners to each button, ONE listener is attached to the parent container:</p>
+
+    <div id="buttonGroup">
+        <button class="topic-btn">HTML</button>
+        <button class="topic-btn">CSS</button>
+        <button class="topic-btn">JavaScript</button>
+        <button class="topic-btn">React</button>
+        <button class="topic-btn">Node.js</button>
+    </div>
+
+    <hr>
+
+    <h3>Event Log Output:</h3>
+    <pre id="output">Click elements above to see event flow...</pre>
+
+    <script>
+        const output = document.getElementById("output");
+        const stopCheck = document.getElementById("stopBubbleCheckbox");
+
+        // --- 1. EVENT BUBBLING ---
+        document.getElementById("outerBox").addEventListener("click", function() {
+            output.innerText += "3. Outer container clicked\n";
+        });
+
+        document.getElementById("middleBox").addEventListener("click", function() {
+            output.innerText += "2. Middle container clicked\n";
+        });
+
+        document.getElementById("innerBtn").addEventListener("click", function(event) {
+            output.innerText = "1. Inner button clicked\n";
+
+            if (stopCheck.checked) {
+                event.stopPropagation();
+                output.innerText += "--> event.stopPropagation() stopped bubbling!\n";
+            }
+        });
+
+        // --- 2. EVENT DELEGATION ---
+        // Single listener attached to parent #buttonGroup
+        document.getElementById("buttonGroup").addEventListener("click", function(event) {
+            // Check if the clicked target was a button
+            if (event.target.tagName === "BUTTON") {
+                output.innerText = "Event Delegation: You clicked button '" + event.target.innerText + "'!\n(Handled by parent #buttonGroup listener)";
+            }
+        });
+    </script>
+
+    <!--
+        ====================================================
+        Class 9 Summary: Event Bubbling & Delegation
+        ====================================================
+
+        1. Event Bubbling:
+           - When you click a child element, the click event bubbles UP through its parent,
+             grandparent, and so on until the top of the document.
+           - event.stopPropagation() stops the event from traveling further up.
+
+        2. Event Delegation:
+           - Attaching an event listener to a PARENT element instead of adding listeners
+             to every child element.
+           - Uses event.target to identify which child was clicked.
+           - Highly efficient for dynamic lists and tables.
+    -->
+
+</body>
+
+</html>

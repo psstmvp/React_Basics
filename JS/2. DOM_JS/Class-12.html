@@ -1,0 +1,106 @@
+<!-- Program: Dynamic Todo App (DOM CRUD) -->
+
+<html>
+
+<head>
+    <title>Class 12 - Dynamic Todo App (DOM CRUD)</title>
+</head>
+
+<body>
+
+    <h1>Class 12: Dynamic Todo App (DOM CRUD)</h1>
+    <p>A full Create, Read, Update, and Delete (CRUD) application built using plain DOM manipulation.</p>
+
+    <!-- Input and Add button -->
+    <input type="text" id="todoInput" placeholder="Enter task name..." value="Practice JavaScript DOM">
+    <button onclick="addTodo()">Add Task</button>
+
+    <h3>Todo List:</h3>
+    <ul id="todoList">
+        <!-- Tasks will be rendered here dynamically -->
+    </ul>
+
+    <p>Total Tasks: <span id="totalCount">0</span></p>
+
+    <hr>
+
+    <h3>Current Data Representation:</h3>
+    <pre id="output">Add or modify tasks to see data state...</pre>
+
+    <script>
+        // Array holding tasks in memory
+        let tasks = [
+            "Learn HTML Tags",
+            "Learn CSS Selectors"
+        ];
+
+        const todoList = document.getElementById("todoList");
+        const todoInput = document.getElementById("todoInput");
+        const totalCount = document.getElementById("totalCount");
+        const output = document.getElementById("output");
+
+        // Renders the tasks array into <li> elements
+        function renderTasks() {
+            // Clear current list items
+            todoList.innerHTML = "";
+
+            for (let i = 0; i < tasks.length; i++) {
+                const li = document.createElement("li");
+                li.innerText = tasks[i] + " ";
+
+                // Create Delete button for each task
+                const deleteBtn = document.createElement("button");
+                deleteBtn.innerText = "Delete";
+                deleteBtn.onclick = (function(index) {
+                    return function() {
+                        deleteTask(index);
+                    };
+                })(i);
+
+                li.appendChild(deleteBtn);
+                todoList.appendChild(li);
+            }
+
+            // Update count
+            totalCount.innerText = tasks.length;
+
+            // Output array state
+            output.innerText = JSON.stringify(tasks, null, 2);
+        }
+
+        // CREATE: Add new task
+        function addTodo() {
+            const text = todoInput.value.trim();
+            if (!text) return alert("Please type a task name!");
+
+            tasks.push(text);
+            todoInput.value = "";
+            renderTasks();
+        }
+
+        // DELETE: Remove task by array index
+        function deleteTask(index) {
+            tasks.splice(index, 1); // remove 1 item at index
+            renderTasks();
+        }
+
+        // Initial render on page load
+        renderTasks();
+    </script>
+
+    <!--
+        ====================================================
+        Class 12 Summary: Dynamic Todo App
+        ====================================================
+
+        1. State-Driven UI Pattern:
+           - Rather than manually editing HTML nodes across multiple click events,
+             we maintain our data in an array (tasks).
+           - Whenever data changes (add or delete), we call renderTasks() to update
+             the entire list accurately.
+           - This is the fundamental architecture used by React!
+    -->
+
+</body>
+
+</html>
