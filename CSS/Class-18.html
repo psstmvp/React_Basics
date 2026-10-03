@@ -1,0 +1,84 @@
+<!-- Program: Flexbox - Align Items -->
+
+<html>
+
+<head>
+    <title>Flexbox - Align Items</title>
+
+    <style>
+        .flex-item {
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        .container {
+            display: flex;
+            gap: 15px;
+            height: 120px;                /* Fixed height container to clearly show vertical alignment */
+            background-color: #f1f1f1;
+            border: 2px solid #ccc;
+            padding: 10px;
+            margin-bottom: 25px;
+        }
+
+        /* 1. Center vertical alignment */
+        .align-center {
+            align-items: center;          /* Centers items along cross axis (vertically) */
+        }
+
+        /* 2. Top / Start vertical alignment */
+        .align-start {
+            align-items: flex-start;      /* Aligns items at the top of the container */
+        }
+
+        /* 3. Bottom / End vertical alignment */
+        .align-end {
+            align-items: flex-end;        /* Aligns items at the bottom of the container */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Flexbox - Align Items Example</h1>
+
+    <h3>1. Align Items Center (align-items: center)</h3>
+    <div class="container align-center">
+        <div class="flex-item" style="height: 30px;">Short (30px)</div>
+        <div class="flex-item" style="height: 70px;">Tall (70px)</div>
+        <div class="flex-item" style="height: 50px;">Medium (50px)</div>
+    </div>
+
+    <h3>2. Align Items Top (align-items: flex-start)</h3>
+    <div class="container align-start">
+        <div class="flex-item" style="height: 30px;">Short (30px)</div>
+        <div class="flex-item" style="height: 70px;">Tall (70px)</div>
+        <div class="flex-item" style="height: 50px;">Medium (50px)</div>
+    </div>
+
+    <h3>3. Align Items Bottom (align-items: flex-end)</h3>
+    <div class="container align-end">
+        <div class="flex-item" style="height: 30px;">Short (30px)</div>
+        <div class="flex-item" style="height: 70px;">Tall (70px)</div>
+        <div class="flex-item" style="height: 50px;">Medium (50px)</div>
+    </div>
+
+    <!--
+        Flexbox - Align Items
+
+        The align-items property defines how flex items are aligned along the cross axis
+        (vertically when flex-direction is row).
+
+        Values:
+        - stretch (default): Stretches items to fill the entire container height (if height is not fixed).
+        - center: Centers items vertically in the middle of the container.
+        - flex-start: Aligns items at the top edge of the cross axis.
+        - flex-end: Aligns items at the bottom edge of the cross axis.
+    -->
+
+</body>
+
+</html>

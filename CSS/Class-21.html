@@ -1,0 +1,87 @@
+<!-- Program: CSS Grid - Rows and Gap -->
+
+<html>
+
+<head>
+    <title>CSS Grid - Rows and Gap</title>
+
+    <style>
+        .grid-item {
+            background-color: #3f51b5;
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        /* 1. Explicit Row Heights */
+        .grid-rows {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 60px 120px;        /* Row 1 is 60px high, Row 2 is 120px high */
+            gap: 15px;
+            background-color: #f1f1f1;
+            padding: 15px;
+            border: 2px solid #ccc;
+            margin-bottom: 25px;
+        }
+
+        /* 2. Different Row Gap and Column Gap */
+        .grid-separate-gaps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            row-gap: 30px;                         /* 30px space between rows */
+            column-gap: 10px;                      /* 10px space between columns */
+            background-color: #ede7f6;
+            padding: 15px;
+            border: 2px solid #d1c4e9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Grid - Rows and Gap Example</h1>
+
+    <h3>1. Fixed Row Heights (grid-template-rows: 60px 120px)</h3>
+    <div class="grid-rows">
+        <div class="grid-item">Row 1 (60px)</div>
+        <div class="grid-item">Row 1 (60px)</div>
+        <div class="grid-item">Row 1 (60px)</div>
+        <div class="grid-item">Row 2 (120px)</div>
+        <div class="grid-item">Row 2 (120px)</div>
+        <div class="grid-item">Row 2 (120px)</div>
+    </div>
+
+    <h3>2. Separate Row and Column Gaps (row-gap: 30px; column-gap: 10px;)</h3>
+    <div class="grid-separate-gaps">
+        <div class="grid-item">Box 1</div>
+        <div class="grid-item">Box 2</div>
+        <div class="grid-item">Box 3</div>
+        <div class="grid-item">Box 4</div>
+        <div class="grid-item">Box 5</div>
+        <div class="grid-item">Box 6</div>
+    </div>
+
+    <!--
+        CSS Grid - Rows and Gap
+
+        Properties:
+        1. grid-template-rows:
+           - Sets the height of each grid row.
+           - e.g. grid-template-rows: 60px 120px; (sets row 1 to 60px, row 2 to 120px).
+
+        2. gap:
+           - Shorthand to set both row and column spacing simultaneously (e.g. gap: 15px;).
+
+        3. row-gap:
+           - Sets space between consecutive rows.
+
+        4. column-gap:
+           - Sets space between consecutive columns.
+    -->
+
+</body>
+
+</html>

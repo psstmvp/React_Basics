@@ -1,0 +1,86 @@
+<!-- Program: Flexbox - Gap and Wrap -->
+
+<html>
+
+<head>
+    <title>Flexbox - Gap and Wrap</title>
+
+    <style>
+        .flex-item {
+            background-color: #9C27B0;
+            color: white;
+            padding: 20px;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 4px;
+            width: 80px;
+        }
+
+        /* 1. Flex Wrap (allows items to break onto new lines) */
+        .flex-wrap {
+            display: flex;
+            flex-wrap: wrap;          /* Items break onto next line when container width is full */
+            gap: 15px;                /* Sets equal space between rows and columns */
+            width: 320px;             /* Restricted container width to demonstrate wrapping */
+            background-color: #f1f1f1;
+            padding: 15px;
+            border: 2px solid #ccc;
+            margin-bottom: 25px;
+        }
+
+        /* 2. No Wrap (forces all items on single line) */
+        .flex-nowrap {
+            display: flex;
+            flex-wrap: nowrap;        /* Keeps all items on one line, shrinking them if needed */
+            gap: 15px;
+            width: 320px;
+            background-color: #fce4ec;
+            padding: 15px;
+            border: 2px solid #f8bbd0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Flexbox - Gap and Wrap Example</h1>
+
+    <h3>1. Flex Wrap with Gap (flex-wrap: wrap; gap: 15px;)</h3>
+    <div class="flex-wrap">
+        <div class="flex-item">Box 1</div>
+        <div class="flex-item">Box 2</div>
+        <div class="flex-item">Box 3</div>
+        <div class="flex-item">Box 4</div>
+        <div class="flex-item">Box 5</div>
+        <div class="flex-item">Box 6</div>
+    </div>
+
+    <h3>2. Flex No-Wrap (flex-wrap: nowrap;)</h3>
+    <div class="flex-nowrap">
+        <div class="flex-item">Box 1</div>
+        <div class="flex-item">Box 2</div>
+        <div class="flex-item">Box 3</div>
+        <div class="flex-item">Box 4</div>
+    </div>
+
+    <!--
+        Flexbox - Gap and Wrap
+
+        By default, flex items will all try to fit onto one line (nowrap).
+        
+        Properties:
+        1. flex-wrap:
+           - nowrap (default): All items stay on a single line even if they overflow.
+           - wrap: Items wrap onto multiple lines from top to bottom when space runs out.
+           - wrap-reverse: Items wrap onto multiple lines in reverse order.
+
+        2. gap:
+           - Sets the spacing between flex items without needing margin.
+           - gap: 15px; (sets both row and column gap).
+           - row-gap: Sets gap between wrapped rows.
+           - column-gap: Sets gap between columns.
+    -->
+
+</body>
+
+</html>

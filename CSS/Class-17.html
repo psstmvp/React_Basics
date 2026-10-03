@@ -1,0 +1,96 @@
+<!-- Program: Flexbox - Justify Content -->
+
+<html>
+
+<head>
+    <title>Flexbox - Justify Content</title>
+
+    <style>
+        .flex-item {
+            background-color: #2196F3;
+            color: white;
+            padding: 15px 25px;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        .container {
+            display: flex;
+            background-color: #f1f1f1;
+            padding: 15px;
+            border: 2px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        /* 1. Center alignment */
+        .justify-center {
+            justify-content: center;       /* Centers all items along the main axis */
+            gap: 15px;
+        }
+
+        /* 2. Space Between */
+        .justify-between {
+            justify-content: space-between;/* First item at start, last at end, equal space between */
+        }
+
+        /* 3. Space Around */
+        .justify-around {
+            justify-content: space-around; /* Equal space around each item */
+        }
+
+        /* 4. Flex End */
+        .justify-end {
+            justify-content: flex-end;     /* Aligns all items to the end of the container */
+            gap: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Flexbox - Justify Content Example</h1>
+
+    <h3>1. Center (justify-content: center)</h3>
+    <div class="container justify-center">
+        <div class="flex-item">Box 1</div>
+        <div class="flex-item">Box 2</div>
+        <div class="flex-item">Box 3</div>
+    </div>
+
+    <h3>2. Space Between (justify-content: space-between)</h3>
+    <div class="container justify-between">
+        <div class="flex-item">Left</div>
+        <div class="flex-item">Center</div>
+        <div class="flex-item">Right</div>
+    </div>
+
+    <h3>3. Space Around (justify-content: space-around)</h3>
+    <div class="container justify-around">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+    </div>
+
+    <h3>4. Flex End (justify-content: flex-end)</h3>
+    <div class="container justify-end">
+        <div class="flex-item">Box A</div>
+        <div class="flex-item">Box B</div>
+    </div>
+
+    <!--
+        Flexbox - Justify Content
+
+        The justify-content property aligns flex items along the main axis (horizontally by default).
+
+        Values:
+        - flex-start (default): Items align at the beginning of the container.
+        - center: Items align in the middle of the container.
+        - flex-end: Items align at the end of the container.
+        - space-between: First and last items touch container edges; space is distributed between them.
+        - space-around: Equal space on left and right sides of each item.
+        - space-evenly: Equal space between every item and the container edges.
+    -->
+
+</body>
+
+</html>

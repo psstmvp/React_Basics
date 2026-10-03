@@ -1,0 +1,103 @@
+<!-- Program: CSS Grid - Introduction and Columns -->
+
+<html>
+
+<head>
+    <title>CSS Grid - Columns</title>
+
+    <style>
+        .grid-item {
+            background-color: #009688;
+            color: white;
+            padding: 20px;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        /* 1. Equal 3-Column Grid using fr (fraction) units */
+        .grid-3-col {
+            display: grid;                     /* Enables CSS Grid layout */
+            grid-template-columns: 1fr 1fr 1fr; /* Creates 3 equal columns */
+            gap: 15px;                          /* Space between cells */
+            background-color: #f1f1f1;
+            padding: 15px;
+            border: 2px solid #ccc;
+            margin-bottom: 25px;
+        }
+
+        /* 2. Using repeat() function for 4 columns */
+        .grid-repeat {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Shortcut for 1fr 1fr 1fr 1fr */
+            gap: 15px;
+            background-color: #e0f2f1;
+            padding: 15px;
+            border: 2px solid #80cbc4;
+            margin-bottom: 25px;
+        }
+
+        /* 3. Mixed fixed and fluid columns */
+        .grid-sidebar {
+            display: grid;
+            grid-template-columns: 200px 1fr;      /* Fixed 200px column + remaining free space */
+            gap: 15px;
+            background-color: #fff3e0;
+            padding: 15px;
+            border: 2px solid #ffe0b2;
+        }
+
+        .sidebar {
+            background-color: #e65100;
+        }
+
+        .content {
+            background-color: #00796b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Grid - Columns Example</h1>
+
+    <h3>1. Equal 3-Column Grid (grid-template-columns: 1fr 1fr 1fr)</h3>
+    <div class="grid-3-col">
+        <div class="grid-item">Column 1</div>
+        <div class="grid-item">Column 2</div>
+        <div class="grid-item">Column 3</div>
+    </div>
+
+    <h3>2. 4-Column Grid with repeat() (grid-template-columns: repeat(4, 1fr))</h3>
+    <div class="grid-repeat">
+        <div class="grid-item">Item 1</div>
+        <div class="grid-item">Item 2</div>
+        <div class="grid-item">Item 3</div>
+        <div class="grid-item">Item 4</div>
+    </div>
+
+    <h3>3. Fixed Sidebar + Fluid Content (grid-template-columns: 200px 1fr)</h3>
+    <div class="grid-sidebar">
+        <div class="grid-item sidebar">Sidebar (200px)</div>
+        <div class="grid-item content">Main Content (Takes remaining space)</div>
+    </div>
+
+    <!--
+        CSS Grid - Introduction and Columns
+
+        CSS Grid is a 2-dimensional layout system designed to arrange elements into rows and columns.
+
+        Properties:
+        1. display: grid;
+           - Turns an element into a grid container.
+
+        2. grid-template-columns:
+           - Defines the number and size of columns.
+           - fr unit: Represents a fraction of available space (e.g. 1fr 1fr 1fr).
+           - repeat(count, size): Repeats columns (e.g. repeat(4, 1fr)).
+           - Fixed units: Combines px or % with fr (e.g. 200px 1fr).
+    -->
+
+</body>
+
+</html>
